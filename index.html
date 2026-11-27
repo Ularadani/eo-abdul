@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abdul Event Organizer | Acara Rapi, Tamu Senang</title>
+<meta name="description" content="Abdul Event Organizer menangani pernikahan, acara perusahaan, konser, dan wisuda dari konsep sampai hari H.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="abdul_header" class="abdul_header">
+  <a href="#abdul_home" class="abdul_logo">Abdul<b>EO</b></a>
+  <button id="abdul_burger" class="abdul_burger" aria-label="Buka menu" aria-expanded="false"><span></span><span></span></button>
+  <nav id="abdul_nav" class="abdul_menu">
+    <a href="#abdul_home" class="abdul_link">Beranda</a>
+    <a href="#abdul_tentang" class="abdul_link">Tentang</a>
+    <a href="#abdul_layanan" class="abdul_link">Layanan</a>
+    <a href="#abdul_portofolio" class="abdul_link">Portofolio</a>
+    <a href="#abdul_paket" class="abdul_link">Paket</a>
+    <a href="#abdul_testimoni" class="abdul_link">Testimoni</a>
+    <a href="#abdul_kontak" class="abdul_link abdul_link_cta">Kontak</a>
+  </nav>
+</header>
+
+<main>
+<section id="abdul_home" class="abdul_hero">
+  <video id="abdul_video_hero" class="abdul_hero_video" autoplay muted loop playsinline aria-hidden="true"><source src="assets/video/hero.mp4" type="video/mp4"></video>
+  <div class="abdul_sorot" aria-hidden="true"></div>
+  <div class="abdul_hero_isi">
+    <h1>Acara Anda kami urus, Anda cukup menikmati.</h1>
+    <p>Abdul Event Organizer menangani pernikahan, acara perusahaan, konser, dan wisuda dari konsep sampai lampu terakhir dimatikan.</p>
+    <div class="abdul_aksi">
+      <a href="#abdul_kontak" class="abdul_tombol">Konsultasi gratis</a>
+      <a href="#abdul_portofolio" class="abdul_tombol abdul_tombol_garis">Lihat hasil kerja kami</a>
+    </div>
+  </div>
+</section>
+
+<section id="abdul_tentang" class="abdul_section">
+  <div class="abdul_dua_kolom">
+    <div>
+      <h2 class="abdul_judul">Tentang kami</h2>
+      <p>Kami tim kecil yang terbiasa bekerja di balik layar. Sejak 2016 kami membantu klien perorangan maupun perusahaan mewujudkan acara yang tepat waktu, sesuai anggaran, dan tidak merepotkan.</p>
+      <p>Setiap acara dipegang satu penanggung jawab dari rapat pertama sampai laporan akhir, jadi Anda selalu tahu siapa yang dihubungi.</p>
+    </div>
+    <div class="abdul_angka">
+      <div><b data-abdul-target="350">0</b><span>acara selesai</span></div>
+      <div><b data-abdul-target="9">0</b><span>tahun pengalaman</span></div>
+      <div><b data-abdul-target="40">0</b><span>anggota tim dan vendor</span></div>
+      <div><b data-abdul-target="98">0</b><span>% klien memesan lagi</span></div>
+    </div>
+  </div>
+  <div id="abdul_video_wrap" class="abdul_video_wrap">
+    <video id="abdul_video_profil" controls preload="metadata" playsinline><source src="assets/video/profil.mp4" type="video/mp4">Browser Anda belum mendukung video.</video>
+  </div>
+</section>
+
+<section id="abdul_layanan" class="abdul_section abdul_biru">
+  <h2 class="abdul_judul">Layanan</h2>
+  <div class="abdul_layanan_grid">
+    <article><h3>Pernikahan</h3><p>Konsep, dekorasi, rundown, dan koordinasi keluarga di hari akad maupun resepsi.</p></article>
+    <article><h3>Acara perusahaan</h3><p>Gathering, rapat tahunan, dan perayaan kantor dengan alur yang rapi.</p></article>
+    <article><h3>Konser dan festival</h3><p>Panggung, tata suara, izin keramaian, serta pengelolaan penonton.</p></article>
+    <article><h3>Seminar dan wisuda</h3><p>Registrasi peserta, ruang, MC, dan dokumentasi dari awal sampai bubar.</p></article>
+    <article><h3>Pameran</h3><p>Desain booth, jadwal pemasangan, dan pengaturan alur pengunjung.</p></article>
+    <article><h3>Peluncuran produk</h3><p>Panggung peluncuran, undangan media, dan siaran langsung.</p></article>
+  </div>
+</section>
+
+<section id="abdul_portofolio" class="abdul_section">
+  <h2 class="abdul_judul">Portofolio</h2>
+  <div class="abdul_filter" role="group" aria-label="Filter kategori">
+    <button class="abdul_filter_btn abdul_aktif" data-abdul-filter="semua">Semua</button>
+    <button class="abdul_filter_btn" data-abdul-filter="pernikahan">Pernikahan</button>
+    <button class="abdul_filter_btn" data-abdul-filter="korporat">Korporat</button>
+    <button class="abdul_filter_btn" data-abdul-filter="konser">Konser</button>
+    <button class="abdul_filter_btn" data-abdul-filter="wisuda">Wisuda</button>
+  </div>
+  <div class="abdul_porto_grid">
+    <button class="abdul_porto abdul_p1" data-abdul-kat="pernikahan" data-abdul-info="Resepsi 800 tamu di gedung serbaguna, Bandung, 2025."><span>Pernikahan Rina dan Dimas</span></button>
+    <button class="abdul_porto abdul_p2" data-abdul-kat="korporat" data-abdul-info="Gathering 300 karyawan selama dua hari, Lembang, 2025."><span>Gathering PT Nusa Karya</span></button>
+    <button class="abdul_porto abdul_p3" data-abdul-kat="konser" data-abdul-info="Festival musik tiga panggung dengan 5.000 penonton, 2024."><span>Festival Musik Kota</span></button>
+    <button class="abdul_porto abdul_p4" data-abdul-kat="wisuda" data-abdul-info="Wisuda 1.200 lulusan dengan siaran langsung, 2025."><span>Wisuda Universitas Cendekia</span></button>
+    <button class="abdul_porto abdul_p5" data-abdul-kat="pernikahan" data-abdul-info="Akad outdoor dengan 150 tamu di kebun, 2024."><span>Garden Wedding Sari dan Fajar</span></button>
+    <button class="abdul_porto abdul_p6" data-abdul-kat="korporat" data-abdul-info="Peluncuran produk dengan 200 undangan media, 2025."><span>Peluncuran Produk Teknologi</span></button>
+  </div>
+</section>
+
+<section id="abdul_paket" class="abdul_section abdul_biru">
+  <h2 class="abdul_judul">Paket</h2>
+  <p class="abdul_pengantar">Harga contoh. Angka akhir menyesuaikan jumlah tamu dan lokasi.</p>
+  <div class="abdul_paket_grid">
+    <article class="abdul_kartu_paket"><h3>Dasar</h3><p class="abdul_harga">Rp 15 juta</p>
+      <ul><li>Rundown dan koordinasi hari H</li><li>Sampai 100 tamu</li><li>1 koordinator lapangan</li></ul>
+      <button class="abdul_tombol abdul_tombol_garis" data-abdul-paket="Dasar">Pilih paket ini</button></article>
+    <article class="abdul_kartu_paket abdul_unggul"><h3>Lengkap</h3><p class="abdul_harga">Rp 40 juta</p>
+      <ul><li>Semua paket Dasar</li><li>Dekorasi dan panggung</li><li>Sampai 300 tamu</li><li>MC dan dokumentasi</li></ul>
+      <button class="abdul_tombol" data-abdul-paket="Lengkap">Pilih paket ini</button></article>
+    <article class="abdul_kartu_paket"><h3>Premium</h3><p class="abdul_harga">Rp 90 juta</p>
+      <ul><li>Semua paket Lengkap</li><li>Tata suara dan cahaya</li><li>Lebih dari 500 tamu</li><li>Tim khusus 10 orang</li></ul>
+      <button class="abdul_tombol abdul_tombol_garis" data-abdul-paket="Premium">Pilih paket ini</button></article>
+  </div>
+</section>
+
+<section id="abdul_testimoni" class="abdul_section">
+  <h2 class="abdul_judul">Kata klien</h2>
+  <div class="abdul_slider" id="abdul_slider">
+    <blockquote class="abdul_slide abdul_tampil"><p>Hari pernikahan kami berjalan tanpa satu pun masalah besar. Kami sempat mengobrol dengan semua tamu.</p><cite>Rina, pengantin</cite></blockquote>
+    <blockquote class="abdul_slide"><p>Gathering 300 orang selesai tepat waktu dan sesuai anggaran. Tim mereka sigap saat jadwal berubah.</p><cite>Budi, HRD PT Nusa Karya</cite></blockquote>
+    <blockquote class="abdul_slide"><p>Penonton festival masuk dengan tertib dan panggung siap sebelum jam yang dijanjikan.</p><cite>Dewi, panitia festival</cite></blockquote>
+  </div>
+  <div class="abdul_slider_aksi">
+    <button id="abdul_sebelum" class="abdul_tombol_kecil" aria-label="Testimoni sebelumnya">Sebelumnya</button>
+    <button id="abdul_sesudah" class="abdul_tombol_kecil" aria-label="Testimoni berikutnya">Berikutnya</button>
+  </div>
+</section>
+
+<section id="abdul_kontak" class="abdul_section abdul_gelap">
+  <h2 class="abdul_judul">Kontak</h2>
+  <div class="abdul_dua_kolom">
+    <div class="abdul_kontak_info">
+      <p>Ceritakan acara yang ingin Anda buat. Kami balas dalam satu hari kerja.</p>
+      <h3>Kantor</h3><p>Jl. Braga No. 50, Bandung</p>
+      <h3>WhatsApp</h3><p><a href="https://wa.me/6281200000000" target="_blank" rel="noopener">0812-0000-0000</a></p>
+      <h3>Email</h3><p>halo@abdulevent.example.com</p>
+      <h3>Jam kerja</h3><p>Senin sampai Sabtu, 09.00 - 17.00 WIB</p>
+    </div>
+    <form id="abdul_form_kontak" class="abdul_form" novalidate>
+      <label for="abdul_k_nama">Nama</label><input id="abdul_k_nama" type="text">
+      <label for="abdul_k_email">Email</label><input id="abdul_k_email" type="email">
+      <label for="abdul_k_jenis">Jenis acara</label>
+      <select id="abdul_k_jenis"><option value="">Pilih jenis acara</option><option>Pernikahan</option><option>Acara perusahaan</option><option>Konser atau festival</option><option>Seminar atau wisuda</option><option>Lainnya</option></select>
+      <label for="abdul_k_tanggal">Perkiraan tanggal</label><input id="abdul_k_tanggal" type="date">
+      <label for="abdul_k_pesan">Pesan</label><textarea id="abdul_k_pesan" rows="4"></textarea>
+      <p id="abdul_k_status" class="abdul_pesan" role="status"></p>
+      <button type="submit" class="abdul_tombol">Kirim pesan</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer id="abdul_footer" class="abdul_footer"><p>Abdul Event Organizer, Bandung. Semua hak dilindungi.</p></footer>
+
+<div id="abdul_lightbox" class="abdul_lightbox" hidden>
+  <button id="abdul_lb_tutup" class="abdul_lb_tutup">Tutup</button>
+  <div id="abdul_lb_isi" class="abdul_lb_isi"></div>
+  <h3 id="abdul_lb_judul"></h3><p id="abdul_lb_info"></p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
