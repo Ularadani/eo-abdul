@@ -3,7 +3,7 @@
    Contoh: 'https://drive.google.com/file/d/1AbCdEf.../view?usp=sharing'
    Kosongkan ('') untuk memakai file lokal assets/video/profil.mp4.
    Syarat: akses file di Drive harus "Siapa saja yang memiliki link". */
-var ABDUL_DRIVE_PROFIL = '';
+var ABDUL_DRIVE_PROFIL = 'https://drive.google.com/file/d/1AbCdEf.../view?usp=sharing';
 
 (function () {
   var $ = function (id) { return document.getElementById(id); };
