@@ -1,3 +1,10 @@
+/* ===== PENGATURAN MEDIA =====
+   Video profil dari Google Drive: tempel link share video di antara tanda kutip.
+   Contoh: 'https://drive.google.com/file/d/1AbCdEf.../view?usp=sharing'
+   Kosongkan ('') untuk memakai file lokal assets/video/profil.mp4.
+   Syarat: akses file di Drive harus "Siapa saja yang memiliki link". */
+var ABDUL_DRIVE_PROFIL = '';
+
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var q = function (s) { return document.querySelectorAll(s); };
@@ -42,19 +49,61 @@
 
   /* Lightbox portofolio */
   var lb = $('abdul_lightbox');
-  q('.abdul_porto').forEach(function (p) {
-    p.addEventListener('click', function () {
-      var isi = $('abdul_lb_isi');
-      isi.style.backgroundImage = getComputedStyle(p).backgroundImage;
-      $('abdul_lb_judul').textContent = p.textContent;
-      $('abdul_lb_info').textContent = p.getAttribute('data-abdul-info');
-      lb.hidden = false; $('abdul_lb_tutup').focus();
-    });
+  document.querySelector('.abdul_porto_grid').addEventListener('click', function (e) {
+    var p = e.target.closest('.abdul_porto');
+    if (!p) return;
+    $('abdul_lb_isi').style.backgroundImage = getComputedStyle(p).backgroundImage;
+    $('abdul_lb_isi').style.backgroundSize = 'cover';
+    $('abdul_lb_isi').style.backgroundPosition = 'center';
+    $('abdul_lb_judul').textContent = p.textContent;
+    $('abdul_lb_info').textContent = p.getAttribute('data-abdul-info');
+    lb.hidden = false; $('abdul_lb_tutup').focus();
   });
   function tutup() { lb.hidden = true; }
   $('abdul_lb_tutup').addEventListener('click', tutup);
   lb.addEventListener('click', function (e) { if (e.target === lb) tutup(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') tutup(); });
+
+  /* Portofolio otomatis: baca isi folder assets/images/portofolio lewat GitHub API.
+     Kalau folder kosong atau GitHub tidak bisa dihubungi, kartu bawaan tetap tampil. */
+  var REPO = 'Ularadani/eo-abdul', FOLDER = 'assets/images/portofolio';
+  var KATEGORI = { pernikahan: 'Pernikahan', korporat: 'Korporat', konser: 'Konser', wisuda: 'Wisuda' };
+  function bangun(list) {
+    var grid = document.querySelector('.abdul_porto_grid');
+    grid.textContent = '';
+    list.forEach(function (f) {
+      var nama = f.name.replace(/\.[^.]+$/, ''), i = nama.indexOf('_'), kat = 'lainnya', judul = nama;
+      if (i > 0) { kat = nama.slice(0, i).toLowerCase(); judul = nama.slice(i + 1); }
+      judul = judul.replace(/[-_]+/g, ' ');
+      var b = document.createElement('button'), sp = document.createElement('span');
+      b.className = 'abdul_porto';
+      b.setAttribute('data-abdul-kat', kat);
+      b.setAttribute('data-abdul-info', KATEGORI[kat] || 'Acara lainnya');
+      b.style.backgroundColor = '#1a1d8f';
+      b.style.backgroundImage = 'url("' + FOLDER + '/' + encodeURIComponent(f.name) + '")';
+      b.style.backgroundSize = 'cover'; b.style.backgroundPosition = 'center';
+      sp.textContent = judul; b.appendChild(sp); grid.appendChild(b);
+    });
+  }
+  function terapkan(files) {
+    var list = files.filter(function (f) { return f.type === 'file' && /\.(jpe?g|png|webp)$/i.test(f.name); });
+    if (list.length) bangun(list);
+  }
+  function muatPorto() {
+    try {
+      var c = JSON.parse(sessionStorage.getItem('abdul_porto') || 'null');
+      if (c && Date.now() - c.t < 600000) { terapkan(c.d); return; }
+    } catch (e) {}
+    fetch('https://api.github.com/repos/' + REPO + '/contents/' + FOLDER)
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (arr) {
+        if (!Array.isArray(arr)) return;
+        try { sessionStorage.setItem('abdul_porto', JSON.stringify({ t: Date.now(), d: arr })); } catch (e) {}
+        terapkan(arr);
+      })
+      .catch(function () {});
+  }
+  muatPorto();
 
   /* Slider testimoni */
   var slides = q('.abdul_slide'), idx = 0, auto;
@@ -76,7 +125,20 @@
     window.addEventListener('load', function () { if (v.networkState === 3) hilang(); });
   }
   cekVideo(vh, function () { vh.remove(); });
-  cekVideo(vp, function () { $('abdul_video_wrap').hidden = true; });
+  function idDrive(u) { var m = /\/d\/([\w-]+)/.exec(u) || /[?&]id=([\w-]+)/.exec(u); return m ? m[1] : ''; }
+  var did = idDrive(ABDUL_DRIVE_PROFIL);
+  if (did) {
+    var fr = document.createElement('iframe');
+    fr.src = 'https://drive.google.com/file/d/' + did + '/preview';
+    fr.title = 'Video profil';
+    fr.allow = 'autoplay; fullscreen';
+    fr.setAttribute('allowfullscreen', '');
+    fr.loading = 'lazy';
+    fr.style.cssText = 'width:100%;aspect-ratio:16/9;border:0;border-radius:8px;background:#12132b';
+    vp.replaceWith(fr);
+  } else {
+    cekVideo(vp, function () { $('abdul_video_wrap').hidden = true; });
+  }
   if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { vh.pause(); vh.removeAttribute('autoplay'); }
 
   /* Pilih paket mengisi form kontak */
