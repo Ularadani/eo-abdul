@@ -62,11 +62,11 @@ a{color:inherit}
 .abdul_porto:hover{transform:scale(1.02)}
 .abdul_porto[hidden]{display:none}
 .abdul_porto span{position:absolute;left:0;right:0;bottom:0;padding:14px;font-weight:700;background:linear-gradient(transparent,rgba(0,0,0,.7))}
-.abdul_p1{background:url(assets/images/porto-6.png) center/cover no-repeat,linear-gradient(150deg,#ff8aa8,#6a2c70)}
+.abdul_p1{background:url(assets/images/porto-2.png) center/cover no-repeat,linear-gradient(150deg,#ff8aa8,#6a2c70)}
 .abdul_p2{background:url(assets/images/porto-3.png) center/cover no-repeat,linear-gradient(150deg,#4cc9f0,#1a1d8f)}
 .abdul_p3{background:url(assets/images/porto-4.png) center/cover no-repeat,linear-gradient(150deg,#ffc233,#b5179e)}
 .abdul_p4{background:url(assets/images/porto-5.png) center/cover no-repeat,linear-gradient(150deg,#80ed99,#22577a)}
-.abdul_p5{background:url(assets/images/porto-2.png) center/cover no-repeat,linear-gradient(150deg,#f9c74f,#43aa8b)}
+.abdul_p5{background:url(assets/images/porto-6.png) center/cover no-repeat,linear-gradient(150deg,#f9c74f,#43aa8b)}
 .abdul_p6{background:url(assets/images/porto-1.png) center/cover no-repeat,linear-gradient(150deg,#9d4edd,#10002b)}
 
 .abdul_paket_grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
